@@ -2,6 +2,7 @@ import 'package:nadterial_store/screens/nadteriallist_form.dart';
 import 'package:flutter/material.dart';
 import 'package:nadterial_store/screens/menu.dart'; // Impor berkas menu.dart jika diperlukan
 import 'package:nadterial_store/widgets/left_drawer.dart'; 
+import 'package:nadterial_store/screens/nadteriallist_page.dart';
 
 class ShopItem {
   final String name;
@@ -30,11 +31,19 @@ class ShopCard extends StatelessWidget {
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
 
           if (item.name == "Tambah Item") {
-          // TODO: Gunakan Navigator.push untuk melakukan navigasi ke MaterialPageRoute yang mencakup ShopFormPage.
+         
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => ShopFormPage(),
+              ));
+          }
+
+           if (item.name == "Lihat Buku") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductListPage(productList: productList)
               ));
           }
         },

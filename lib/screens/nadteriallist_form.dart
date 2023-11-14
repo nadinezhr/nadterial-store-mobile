@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nadterial_store/widgets/left_drawer.dart'; // Impor drawer yang sudah dibuat sebelumnya
-// TODO: Impor drawer yang sudah dibuat sebelumnya
+import 'package:nadterial_store/widgets/left_drawer.dart';
+import 'package:nadterial_store/models/nadterial_models.dart';
+import 'package:nadterial_store/screens/nadteriallist_page.dart'; 
+
+List<Product> productList = [];
 
 class ShopFormPage extends StatefulWidget {
-    const ShopFormPage({Key? key});
+    const ShopFormPage({super.key});
 
     @override
     State<ShopFormPage> createState() => _ShopFormPageState();
@@ -27,7 +30,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
             backgroundColor: Colors.indigo,
             foregroundColor: Colors.white,
           ),
-          // TODO: Tambahkan drawer yang sudah dibuat di sini
+  
           drawer: const LeftDrawer(),
           body: Form(
             key: _formKey,
@@ -69,7 +72,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                       ),
-                      // TODO: Tambahkan variabel yang sesuai
+                    
                       onChanged: (String? value) {
                         setState(() {
                           _amount = int.parse(value!);
@@ -98,7 +101,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                       ),
                       onChanged: (String? value) {
                         setState(() {
-                          // TODO: Tambahkan variabel yang sesuai
+                      
                           _description = value!;
                         });
                       },
@@ -122,6 +125,13 @@ class _ShopFormPageState extends State<ShopFormPage> {
                         ),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
+                            Product newItem = Product(
+                                name: _name,
+                                amount: _amount,
+                                description: _description,
+                              );
+                              productList.add(newItem);
+
                             showDialog(
                               context: context,
                               builder: (context) {
@@ -132,7 +142,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        // TODO: Munculkan value-value lainnya
+                                      
                                         Text('Nama: $_name'),
                                         Text('Jumlah: $_amount'),
                                         Text('Deskripsi: $_description')

@@ -64,11 +64,15 @@
     - ck6 : Saya membuka command prompt (cmd) proyek flutter saya dan mengaktifkan env. Setelah itu, saya melakukan perintah git add, commit, dan push.
 
 ## Tugas 7 PBP ##
-1. Jawab:
+1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
+
+    Jawab:
 
     Perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi flutter terletak pada bagaimana mereka mengelola dan merespons perubahan data atau keadaan aplikasi. Stateless widget tidak memiliki keadaan internal yang berubah, sedangkan stateful memiliki keadaan internal yang dapat berubah selama widget hidup. Stateless widget hanya memiliki properti final yang didefinisikan saat pembuatan dan hanya hal tersebut yang dibutuhkan saat membuat device screen. Stateless widget digunakan untuk menampilkan tampilan yang statis/tetap yang tidak bergantung pada perubahan data, sedangkan stateful widget digunakan untuk memperbarui tampilan atau merespons perubahan data/input pengguna. Contoh dari stateless widget adalah teks statis, ikon, gambar, dan elemen lain yang tidak perlu mengubah keadaan. Sementara itu, salah satu contoh dari stateful widget adalah formulir yang menggunakan input pengguna.
 
-2.  Jawab :
+2.  Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
+
+    Jawab :
 
     - MyHomePage (Stateless Widget): Widget utama yang mewakili halaman beranda aplikasi. Digunakan untuk mengatur tampilan utama aplikasi, termasuk AppBar dan daftar item.
 
@@ -96,7 +100,9 @@
 
     - Text (di dalam ShopCard): Text digunakan untuk menampilkan teks yang mewakili nama item di dalam setiap card.
 
-3. Jawab :
+3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+
+    Jawab :
 
     checklist (ck):
 

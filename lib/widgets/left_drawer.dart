@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nadterial_store/screens/list_product.dart';
 import 'package:nadterial_store/screens/menu.dart';
 import 'package:nadterial_store/screens/nadteriallist_form.dart';
-import 'package:nadterial_store/screens/nadteriallist_page.dart';
+//import 'package:nadterial_store/screens/nadteriallist_page.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -66,17 +67,28 @@ class LeftDrawer extends StatelessWidget {
                 ));
             },
           ),
+          // ListTile(
+          //   leading: const Icon(Icons.view_list),
+          //   title: const Text('Lihat Item'),
+          //   onTap: () {
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => ProductListPage(productList: productList),
+          //       ));
+          //   },
+          // )
           ListTile(
-            leading: const Icon(Icons.view_list),
-            title: const Text('Lihat Item'),
+            leading: const Icon(Icons.shopping_basket),
+            title: const Text('Daftar Item'),
             onTap: () {
-              Navigator.pushReplacement(
+                // Route menu ke halaman produk
+                Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => ProductListPage(productList: productList),
-                ));
+                MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
             },
-          )
+        ),
         ],
       ),
     );

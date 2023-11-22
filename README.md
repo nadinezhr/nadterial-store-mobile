@@ -1,3 +1,83 @@
+## Tugas 9 PBP ##
+1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+    Jawab : Kita tetap bisa melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Namun, membuat model lebih baik dilakukan sebelum pengambilan data JSON karena dengan model kita dapat memahami struktur data JSON yang diambil. Selain itu, dengan model kita dapat menyimpan data tersebut ke database, melakukan validasi data, dan kode lebih mudah dibaca menggunakan field yang ada di model. Jika kita hanya perlu membaca data dengan tidak menyimpan data tersebut, model tidak perlu dibuat sebelumnya.
+
+2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+    Jawab : CookieRequest digunakan untuk memberi request HTTP yang membawa cookies (informasi pengguna/sesi pengguna diserver yang sudah melalui autentikasi). kita membuat sebuah Provider yang membuat sebuah CookieRequest dan memberikan instance tersebut ke semua komponen yang ada di aplikasi. Dengan ini, kita bisa melakukan request HTTP dan menangani cookies di semua komponen tanpa perlu membuat CookieRequest lagi. CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi agar memastikan bahwa informasi pengguna atau sesi pengguna tersebut tetap konsisten (menyeluruh) di semua komponen. Misalnya, jika pengguna sudah login di satu komponen, pengguna juga akan login di komponen lainnya. Selain itu, cookies juga bisa digunakan untuk menyimpan preferensi pengguna. Misalnya, jika pengguna mengubah bahasa aplikasi di satu komponen, perubahan tersebut juga akan berlaku di komponen lainnya. Oleh karena itu, instance CookieRequest perlu dibagikan ke semua komponen untuk memastikan bahwa preferensi pengguna tersebut tetap konsisten di semua komponen.
+
+3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+
+    Jawab : 
+
+    - Membuat Model: Perlu membuat model yang mewakili struktur data JSON. Model ini merupakan sebuah class dengan field yang sesuai dengan key di JSON dan method untuk mengubah data JSON menjadi instance dari class tersebut.
+
+    - Membuat Request HTTP: Perlu membuat request HTTP untuk mengambil data JSON dari server.
+
+    - Decoding Data JSON: Setelah mendapatkan data JSON dari server, perlu untuk men-decode data tersebut menjadi format JSON.
+
+    - Mengubah Data JSON menjadi Model: Setelah data JSON di-decode, ubah data tersebut menjadi instance dari model yang telah dibuat sebelumnya.
+
+    - Menampilkan Data: Terakhir, tampilkan data tersebut di Flutter. Ini bisa dilakukan dengan menggunakan widget.
+
+4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+    Jawab :
+
+    - Input Data Akun: Pertama, pengguna memasukkan data akun mereka pada aplikasi Flutter yang terdiri dari memasukkan username dan password.
+
+    - Membuat Request Login: Aplikasi Flutter akan membuat request login ke server Django. Request ini biasanya melibatkan pengiriman data akun pengguna (username dan password) ke server Django.
+
+    - Verifikasi Data Akun: Server Django kemudian akan memverifikasi data akun (username dan password) yang diterima. Jika data akun valid, server Django akan membuat sesi untuk pengguna tersebut dan mengirimkan cookies untuk menunjukkan bahwa pengguna tersebut sudah login.
+
+    - Menerima Cookies: Aplikasi Flutter kemudian akan menerima cookies dari server Django dan menyimpannya untuk digunakan di request selanjutnya. Cookies ini biasanya disimpan dalam CookieRequest yang kita gunakan untuk melakukan request HTTP.
+
+    - Membuat Request Menu: Setelah pengguna login, aplikasi Flutter kemudian akan membuat request menu ke server Django. Request ini biasanya melibatkan pengiriman cookies yang kita terima dari server Django.
+
+    - Menampilkan Menu: Terakhir, aplikasi Flutter akan menampilkan menu yang diterima dari server Django. Menu ini biasanya ditampilkan di halaman atau widget tertentu di aplikasi Flutter.
+
+5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+
+    Jawab :
+
+    - Scaffold: Widget ini menyediakan kerangka dasar untuk aplikasi Flutter. Ini mencakup elemen seperti AppBar, Drawer, dan Body. Scaffold digunakan untuk membuat tampilan utama dari aplikasi 2.
+
+    - TextField : menerima input teks dari pengguna. Pada tugas ini digunakan untuk menerima username dan password saat login dan registrasi.
+
+    - Container: Widget ini digunakan untuk menyediakan konteks layout dan rendering untuk widget anaknya. Biasanya digunakan untuk mengatur padding, margin, dan warna latar belakang.
+
+    - Column: Widget ini digunakan untuk menampilkan widget anaknya dalam orientasi vertikal. Biasanya digunakan untuk mengatur tata letak widget secara vertikal.
+
+    - SizedBox : membuat ruang tertentu. Pada tugas ini dugnakan untuk memberikan jarak atau pemisah antara TextField username dan passowrd.
+
+    - ElevatedButton : membuat tombol yang memiliki efek elevasi ketika ditekan. Pada tugas ini digunakan sebagai tombol submit pada saat login dan registrasi.
+
+    - AlertDialog: Widget ini digunakan untuk menampilkan dialog dengan pesan dan opsi. Biasanya digunakan untuk memberikan pesan penting kepada pengguna atau meminta konfirmasi.
+
+    - TextButton : membuat tombol berupa teks tanpa latar belakang. Pada tugas ini digunakan pada tombol registrasi
+    Listview.builder : membuat daftar item yang dapat discroll. Pada tugas ini digunakan untuk menampilkan daftar item yang ada.
+
+    - Text : membuat teks. Pada tugas ini digunakann untuk menampilkan teks detail saat item pada daftar item ditekan.
+
+6.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+    Jawab : checklist (ck)
+
+    ck1 : Pertama-tama saya membuka berkas file settings.py di direktori proyek tugas untuk menambahkan kode csrf login. Kemudian, saya melakukan perintah git add, commit, dan push untuk melakukan deployment ulang. Namun, walaupun deployment sudah berhasil, saya tetap tidak bisa melakukan registrasi dan login. Link deployment juga tidak bisa digunakan pada flutter.
+
+    ck2 dan ck3 : Pertama saya melakukan instalasi app django bernama authentication. Kemudian, saya menambahkan app tersebut ke dalam settings.py. Selanjutnya saya melakukan instalasi library django cors headers dan menambahkannya ke dalam settings.py juga. Saya juga menambahkan kode corsheaders.middleware.CorsMiddleware dan beberapa variabel tambahan pada berkas file settings.py. Kemudian, saya membuka berkas views.py pada direktori authentication dan menambahkan potongan kode login serta melakukan routing fungsi tersebut ke urls.py yang ada di direktori proyek juga direktori authentication. Setelah itu, saya mengintegrasikan sistem autentikasi pada flutter. Pertama-tama saya melakukan instal package provider dan pbp_django_auth. Kemudian, saya melakukan modifikasi pada root widget dengan menambahkan provider. Selanjutnya, saya membuat file baru pada direktori screen dengan nama login.dart dan mengisi file tersebut dengan potongan kode login. Terakhir, saya mengubah home: MyHomePage() menjadi home: LoginPage() pada file main.dart.
+
+    ck4 dan ck5 : Pertama-tama saya membuka endpoint JSON. Kemudian, saya meng-copy data dari endpoint tersebut dan memasukkannya ke dalam textbox yang tersedia di Quicktype setelah melakukan beberapa setup. Kemudian, saya membuat direktori bernama models dan file bernama product.dart yang diisi dengan copy code dari quicktype. Selanjutnya, saya menambahkan package http dan menambahkan potongan kode untuk memperoleh akses Internet pada aplikasi Flutter. Pada direktori screens saya membuat file baru bernama list_product dan melakukan beberapa import serta menambahkan potongan kode. Padaa leftdrawer, saya menambahkan kode ListTile Menu dan menambahkan navigasi untuk tombol lihat item. Saya juga melakukan integrasi flutter form dengan django. Pada views.py di direktori main, saya menambahkan fungsi create product flutter dan melakukan routing fungsi tersebut ke urls.py. Selanjutnya, saya menghubungkan halaman  shoplist_form.dart dengan CookieRequest dan mengubah beberapa kode button. 
+
+    ck6 : Pertama-tama saya membuat file baru untuk detail page pada direktori screen dan menambahkan kode serta import. Selanjutnya, saya menambahkan lode ListView pada file list_product.dart agar item dapat ditekan dan menampilkan detail item pada halaman baru. 
+
+    ck7 : Buka berkas readme dan isi dengan jawaban dari soal-soal tugas 9 PBP. 
+
+    ck 8 : Buka command promp flutter dan django proyek. Kemudian, lakukan perintah git add, commit, dan push. 
+
+
+
 ## Tugas 8 PBP ##
 1.  Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!
 
